@@ -29,17 +29,6 @@ const uint8_t digit_map[] = {
     0xD7, 0x06, 0xE3, 0xA7, 0x36, 0xB5, 0xF5, 0x07, 0xF7, 0xB7
 };
 
-// 0 = 1101 0111
-// 1 = 0000 0110
-// 2 = 1110 0011
-// 3 = 1010 0111
-// 4 = 0011 0110
-// 5 = 1011 0101
-// 6 = #### 0###
-// 7 = #### 0###
-// 8 = #### 0###
-// 9 = #### 0###
-
 // sends MSB one-by-one
 void send_bits(uint8_t val, uint8_t num_bits){
     uint8_t i;
