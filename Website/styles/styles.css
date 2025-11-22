@@ -1,0 +1,57 @@
+body{
+    margin: 0px;
+    padding: 50px;
+}
+
+hr {
+    width: 100%;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    margin: auto;
+    background-color: hsl(0, 0%, 95%);
+    padding-left: 75px;
+    padding-right: 75px;
+    box-shadow: 0px 0px 7px hsl(0, 0%, 50%);
+    border-radius: 25px;
+}
+
+.groupMembers{
+    display: flex;
+    flex-direction: row;
+}
+
+.groupMembers p{
+    padding: 5px;
+}
+
+.individual{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    border: 2px solid;
+    border-radius: 15px;
+    border-color: hsl(0, 0%, 0%);
+}
+
+.individual p{
+    margin: 0px;
+}
+
+.individual img{
+    height: 100px;
+    width: 100px;
+    margin: 25px;
+    border-radius: 50px;
+}
+
+.pdf{
+    border: 2px solid;
+    border-radius: 5px;
+    margin: 30px;
+}
