@@ -1,18 +1,18 @@
 # NIMBL: Base Station Dashboard & Project Website
 
-## NIMBL Libraries
-
-*   [SparkFun_MAX32664_Library](https://github.com/TakiTyler/NIMBL-SparkFun_MAX32664_Library)
-*   [HT1621_LCD_Library](https://github.com/TakiTyler/NIMBL-HT1621_LCD_Library)
-*   [CC1101_RF_Library](https://github.com/TakiTyler/NIMBL-CC1101_RF_Library)
-*   [Website_and_Python](https://github.com/TakiTyler/NIMBL-Website_and_Python)
-
 ## Overview
 **NIMBL** (Non-Invasive Module for Biomonitoring Life) is a comprehensive, low-cost, and low-power wireless pulse oximeter designed as a Senior Design Project for UCF ECE (Group 30).
 
 This repository houses the frontend components of the project:
 1.  **Project Website:** An HTML/CSS landing page showcasing our project overview, team members, and major deliverables (reports, presentations, and demo videos).
 2.  **Base Station Dashboard:** A Python-based desktop application that receives, parses, and plots real-time patient biometric data wirelessly transmitted from our custom wearable device.
+
+## NIMBL Libraries
+
+*   [SparkFun_MAX32664_Library](https://github.com/TakiTyler/NIMBL-SparkFun_MAX32664_Library)
+*   [HT1621_LCD_Library](https://github.com/TakiTyler/NIMBL-HT1621_LCD_Library)
+*   [CC1101_RF_Library](https://github.com/TakiTyler/NIMBL-CC1101_RF_Library)
+*   [Website_and_Python](https://github.com/TakiTyler/NIMBL-Website_and_Python)
 
 ## Python Dashboard (`main.py`)
 The base station software acts as the receiver's user interface. It reads incoming serial data via a connected RF base station (or directly via UART for debugging) and displays it in a clean, modern UI.
