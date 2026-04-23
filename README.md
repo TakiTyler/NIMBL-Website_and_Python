@@ -42,7 +42,7 @@ python main.py
 The website serves as the central hub for our project documentation and progress tracking. It includes embedded PDFs of our divide-and-conquer strategy, Critical Design Review (CDR), conference paper, and final video demonstrations.
 
 ### Viewing the Site
-Simply open `index.html` in any modern web browser to view the site. No local server is required unless you are actively developing and modifying the CSS/assets.
+You can view the live project website here: https://maverick.eecs.ucf.edu/seniordesign/fa2025sp2026/g30/. Alternatively, simply open `index.html` in any modern web browser to view the site locally.
 
 ## The NIMBL Ecosystem Repositories
 This repository is part of a larger ecosystem of software and hardware designed for this project:

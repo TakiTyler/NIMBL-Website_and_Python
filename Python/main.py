@@ -55,7 +55,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("NIMBL - Live Biometrics Monitor")
         self.resize(800, 600)
-        self.setWindowIcon(QIcon('logo_dark.png'))
+        self.setWindowIcon(QIcon('Python/logo_dark.png'))
 
         # Set Dark Mode window style
         self.setStyleSheet("background-color: #121212; color: #ffffff;")
@@ -115,7 +115,7 @@ class MainWindow(QMainWindow):
         hr_title.setStyleSheet("font-size: 18px; font-weight: bold; color: #ffffff;")
         self.hr_stats_label = QLabel("Avg: -- | Min: -- | Peak: --")
         self.hr_stats_label.setStyleSheet("font-size: 16px; font-weight: bold; color: #44ff44;")
-        
+
         hr_header_layout.addWidget(hr_title)
         hr_header_layout.addStretch()
         hr_header_layout.addWidget(self.hr_stats_label)

@@ -6,18 +6,52 @@
     padding: 0;
 }
 
-:root{
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 140px;
+}
+
+/* Load the local Inter font */
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-v20-latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
     --background: #f4f7f6;
     --surface: #ffffff;
     --text-primary: #333333;
     --text-secondary: #666666;
-    --accent: #ffc904; /* UCF Gold */
+    --accent: #ffc904;
+    /* UCF Gold */
     --header-bg: #1a1a1a;
     --border-color: rgba(0, 0, 0, 0.08);
-    
+
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
+    border-radius: 6px;
+    border: 3px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-primary);
 }
 
 body {
@@ -27,12 +61,15 @@ body {
     min-height: 100vh;
 }
 
-/* Header Styling */
+/* Header & Nav Styling */
 .site-header {
     background-color: var(--header-bg);
     color: #ffffff;
     padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-container {
@@ -41,6 +78,7 @@ body {
     padding: 0 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
 }
 
@@ -60,6 +98,26 @@ body {
     font-size: 1.05rem;
     color: #e0e0e0;
     font-weight: 300;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--accent);
 }
 
 /* Main Content Layout */
@@ -82,7 +140,18 @@ body {
     border: 1px solid var(--border-color);
 }
 
-.project-info h2, .group-section h2, .deliverables-section h2 {
+.project-info h2,
+.group-section h2,
+.deliverables-section h2,
+.project-details h2,
+.goals-objectives h2,
+.project-design h2,
+.architecture-section h2,
+.technologies-section h2,
+.bom-section h2,
+.datasheets-section h2,
+.github-section h2,
+.acknowledgements-section h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: var(--text-primary);
@@ -91,9 +160,27 @@ body {
     padding-bottom: 5px;
 }
 
+.bom-section img{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+.project-details p {
+    margin-top: 15px;
+}
+
 .project-info p {
     font-size: 1.1rem;
     color: var(--text-secondary);
+}
+
+/* Custom Divider for Consolidated Cards */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 40px 0;
 }
 
 /* Group Members Grid Layout */
@@ -168,12 +255,81 @@ body {
     align-items: center;
 }
 
-.media-item h3 {
+/* Deliverables Nav */
+.deliverables-nav {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.deliverables-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.deliverables-links a {
+    background-color: var(--surface);
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.deliverables-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Minimizable Elements (Details/Summary) */
+.media-item details {
     width: 100%;
+}
+
+.media-item summary {
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    /* Hide default arrow */
+}
+
+.media-item summary::-webkit-details-marker {
+    display: none;
+    /* Hide default arrow in webkit */
+}
+
+.media-item summary::after {
+    content: "▼";
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+}
+
+.media-item details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.media-item summary h3 {
     font-size: 1.4rem;
-    margin-bottom: 20px;
     color: var(--text-primary);
     text-align: left;
+    margin-bottom: 0;
+}
+
+.deliverable-content {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Document Embeds */
@@ -189,8 +345,76 @@ body {
 /* Video Embeds */
 .video-embed {
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border-color);
+}
+
+/* Technologies Grid */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background);
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 120px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.tech-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+/* Datasheets Section */
+.datasheet-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.datasheet-btn {
+    background-color: var(--background);
+    color: var(--text-primary);
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.datasheet-btn:hover {
+    background-color: var(--surface);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Chart Embeds */
+.chart-embed {
+    width: 100%;
+    max-width: 700px;
+    height: 450px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+    display: block;
 }
 
 .vertical-video {
@@ -201,7 +425,7 @@ body {
 
 .horizontal-video {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     height: auto;
 }
 
@@ -225,4 +449,91 @@ body {
     padding: 25px;
     margin-top: 40px;
     font-size: 0.9rem;
+}
+
+/* Goals & Objectives */
+.goals-objectives ul {
+    list-style-position: inside;
+    color: var(--text-secondary);
+    margin-top: 10px;
+}
+
+.goals-objectives li {
+    margin-bottom: 10px;
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+}
+
+/* Project Design Gallery */
+.design-gallery {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr)); */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.design-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.design-item img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+}
+
+/* GitHub Section */
+.github-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.github-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #24292e;
+    /* GitHub Brand Dark */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.github-btn:hover {
+    background-color: #000000;
+}
+
+/* Member Details Override */
+.member-details {
+    font-size: 0.85rem !important;
+    margin-bottom: 15px !important;
+    text-align: left;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* Slides Embed */
+.slides-embed {
+    width: 100%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
 }

@@ -4,28 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NIMBL (Non-Invasive Module for Biomonitoring Life) - Senior Design Project by Group 30. A low-cost, wireless biometric monitoring device.">
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" href="img/logo_light.png" type="image/x-icon">
+    <link rel="icon" href="img/logo_light.webp" type="image/x-icon">
     <title>NIMBL Project - Group 30</title>
-    <!-- google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <header class="site-header">
         <div class="header-container">
-            <img src="img/logo_light.png" alt="NIMBL Logo" class="logo">
+            <img src="img/logo_light.webp" alt="NIMBL Logo" class="logo" width="100" height="100">
             <div class="header-titles">
                 <h1>NIMBL</h1>
                 <p>Non-Invasive Module for Biomonitoring Life</p>
             </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#details">Details</a></li>
+                    <li><a href="#design">Design</a></li>
+                    <li><a href="#bom">BOM</a></li>
+                    <li><a href="#deliverables">Deliverables</a></li>
+                    <li><a href="#datasheets">Extra</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main class="content">
-        <section class="project-info card">
+        <section id="overview" class="project-info card">
             <h2>Project Overview</h2>
             <p>Whether providing important insights in an emergency or measuring the vitals of a sleeping baby, pulse
                 rate and blood oxygen saturation are common baseline indicators of general health. Many pulse oximeter
@@ -34,121 +44,457 @@
                 issues.</p>
         </section>
 
-        <section class="group-section">
+        <section id="team" class="group-section">
             <h2>Group 30 Members</h2>
             <div class="group-grid">
                 <div class="member-card">
-                    <img src="img/ethan.png" alt="Ethan Denner" class="headshot">
+                    <img src="img/ethan.webp" alt="Headshot of Ethan Denner" class="headshot" loading="lazy" width="150"
+                        height="150">
                     <div class="member-info">
                         <h3>Ethan Denner</h3>
                         <p>Electrical Engineering</p>
+                        <p class="member-details"><strong>Contributions:</strong> PPG research, sensor selection, main
+                            PCB fabrication, circuit design, mechanical design.</p>
                         <a href="https://www.linkedin.com/in/ethan-denner-b7055b2bb/" target="_blank"
-                            class="linkedin-btn">LinkedIn Profile</a>
+                            class="linkedin-btn" rel="noopener noreferrer">LinkedIn Profile</a>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="img/kai.jpg" alt="Kai Ford" class="headshot">
+                    <img src="img/kai.webp" alt="Headshot of Kai Ford" class="headshot" loading="lazy" width="150"
+                        height="150">
                     <div class="member-info">
                         <h3>Kai Ford</h3>
                         <p>Electrical Engineering</p>
-                        <a href="https://www.linkedin.com/in/kai-ford/" target="_blank" class="linkedin-btn">LinkedIn
+                        <p class="member-details"><strong>Contributions:</strong> Radio Module development, RF board
+                            selection, RF PCB fabrication, video editing.</p>
+                        <a href="https://www.linkedin.com/in/kai-ford/" target="_blank" class="linkedin-btn"
+                            rel="noopener noreferrer">LinkedIn
                             Profile</a>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="img/tyler.jpg" alt="Tyler Takimoto" class="headshot">
+                    <img src="img/tyler.webp" alt="Headshot of Tyler Takimoto" class="headshot" loading="lazy"
+                        width="150" height="150">
                     <div class="member-info">
                         <h3>Tyler Takimoto</h3>
                         <p>Computer Engineering</p>
+                        <p class="member-details"><strong>Contributions:</strong> MCU & display selection, firmware and
+                            software development, website creation.</p>
                         <a href="https://www.linkedin.com/in/tyler-takimoto-a35571300" target="_blank"
-                            class="linkedin-btn">LinkedIn Profile</a>
+                            class="linkedin-btn" rel="noopener noreferrer">LinkedIn Profile</a>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="img/ben.jpg" alt="Benjamin Will" class="headshot">
+                    <img src="img/ben.webp" alt="Headshot of Benjamin Will" class="headshot" loading="lazy" width="150"
+                        height="150">
                     <div class="member-info">
                         <h3>Benjamin Will</h3>
                         <p>Electrical Engineering</p>
-                        <a href="https://www.linkedin.com/in/benjamin-will/" target="_blank"
-                            class="linkedin-btn">LinkedIn Profile</a>
+                        <p class="member-details"><strong>Contributions:</strong> Power circuit researcher and designer,
+                            PCB fabrication, charging circuit designer.</p>
+                        <a href="https://www.linkedin.com/in/benjamin-will/" target="_blank" class="linkedin-btn"
+                            rel="noopener noreferrer">LinkedIn Profile</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="deliverables-section">
-            <h2>Project Deliverables</h2>
-
-            <div class="media-item card">
-                <h3>Initial Project Description</h3>
-                <object class="document-embed" data="G30_DivideAndConquer.pdf" type="application/pdf">
-                    <p>Your browser does not support PDFs. <a href="G30_DivideAndConquer.pdf" target="_blank">Download
-                            the PDF</a>.</p>
-                </object>
+        <section class="card">
+            <div id="details" class="project-details">
+                <h2>Project Details</h2>
+                <p>Within the design we have a few main modules.</p>
+                <p>The main PCB holds connectors that link our separate modules together and our TI MSP430FR2476
+                    microcontroller that communicates to all of our peripherals.</p>
+                <p>Our sensor module utilizes the SparkFun MAX32664 to measure the vitals information of our users. It
+                    is designed in such a way that the module can be detached from the main body for improved comfort.
+                </p>
+                <p>The vitals information is displayed with the HT1621 LCD controller, showing 6 digits with 7 segments
+                    each. The 6 digits are treated as 2 segments of 3 digits each.</p>
+                <p>Once the data is read by our MCU, we communicate with the CC1101 radio module to transmit the blood
+                    oxygenation and heart rate to our base station.</p>
+                <p>To charge and power the system, we provided a port for an IEC C13 cable. A battery is included to
+                    allow for portable use.</p>
             </div>
 
-            <div class="media-item card">
-                <h3>SD1 Final Report</h3>
-                <object class="document-embed" data="G30_SD1_Final_Report.pdf" type="application/pdf">
-                    <p>Your browser does not support PDFs. <a href="G30_SD1_Final_Report.pdf" target="_blank">Download
-                            the PDF</a>.</p>
-                </object>
-            </div>
+            <hr class="section-divider">
 
-            <div class="media-item card">
-                <h3>SD1 Demo Video</h3>
-                <video class="video-embed vertical-video" controls>
-                    <source src="img/NIMBL_Demo_Video_Final.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+            <div id="goals" class="goals-objectives">
+                <h2>Goals</h2>
 
-            <div class="media-item card">
-                <h3>Critical Design Review</h3>
-                <video class="video-embed horizontal-video" controls>
-                    <source src="img/NIMBL_CDR_Video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+                <h3>Basic</h3>
+                <ul>
+                    <li>Offer a safe and accurate noninvasive biomonitoring experience by featuring
+                        power element isolation between the electrical systems and the user. We will also
+                        radiate within the appropriate bandwidths and at the appropriate power levels for
+                        RF communications.
+                    </li>
+                </ul>
 
-            <div class="media-item card">
-                <h3>Conference Paper</h3>
-                <object class="document-embed" data="G30 Conference Paper.pdf" type="application/pdf">
-                    <p>Your browser does not support PDFs. <a href="G30 Conference Paper.pdf" target="_blank">Download
-                            the PDF</a>.</p>
-                </object>
-            </div>
+                <h3>Advanced</h3>
+                <ul>
+                    <li>Make the device versatile. By versatile, we mean that the design should be modular in such a way
+                        that it could fit onto various mounts and inside of various casings. </li>
+                    <li>High power efficiency would also contribute to realizing a versatile biomonitor; the longer that
+                        the device can operate on a single charge, the better.
+                    </li>
+                </ul>
 
-            <div class="media-item card">
-                <h3>Final Presentation</h3>
-                <video class="video-embed horizontal-video" controls>
-                    <source src="img/G30_NIMBL_Final_Review.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+                <h3>Stretch</h3>
+                <ul>
+                    <li>Maximize long-term utility and data storage by effectively communicating data to an external
+                        base station via RF communications.</li>
+                </ul>
 
-            <div class="media-item card">
-                <h3>Final Demonstration</h3>
-                <video class="video-embed horizontal-video" controls>
-                    <source src="img/G30_NIMBL_Final_Demo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+                <h2 style="margin-top: 30px;">Objectives</h2>
 
-            <div class="media-item card pending">
-                <h3>Final Documentation</h3>
-                <p>Not Implemented Yet</p>
-            </div>
+                <h3>Basic</h3>
+                <ul>
+                    <li>Isolate power storage and circuit elements from the user.</li>
+                    <li>Accurately measure pulse rate and blood oxygen levels using noninvasive sensing.</li>
+                    <li>Utilizing an on-board processor, leverage software to transform sense data into visualizations:
+                        a percentage (for blood oxygen monitoring) and a pulse rate measurement.</li>
+                </ul>
 
-            <div class="media-item card pending">
-                <h3>Other Content</h3>
-                <p>Not Implemented Yet</p>
+                <h3>Advanced</h3>
+                <ul>
+                    <li>Total prototype weight under 3kg.</li>
+                    <li>Ensure that the prototype can operate for at least three continuous hours of screen-on time.
+                    </li>
+                    <li>Communicate data via RF to a base station for storage.</li>
+                </ul>
+
+                <h3>Stretch</h3>
+                <ul>
+                    <li>Establish software for processing stored biometric data to generate long-term analyses.</li>
+                </ul>
             </div>
         </section>
+
+        <section class="card">
+            <div id="design" class="project-design">
+                <h2>Project Design</h2>
+                <p>Below are detailed pictures and descriptions of the NIMBL project design.</p>
+                <div class="design-gallery">
+                    <div class="design-item">
+                        <img src="img/device_glow.webp"
+                            alt="Fully designed NIMBL device showing the PPG sensor and LCD display" loading="lazy"
+                            width="600" height="400">
+                        <p>Here is our fully designed project. At the top with the red light is our PPG sensor. The
+                            middle section houses our rf transceiver, LCD, power switch, and labels for the measured
+                            values.
+                            Below the main section is our docking station that uses wall power to charge the device.</p>
+                    </div>
+                    <div class="design-item">
+                        <img src="img/frontend-no-readings.webp" alt="Python frontend dashboard for data display"
+                            loading="lazy" width="650" height="400">
+                        <p>This is the Python frontend that we designed for displaying our wirelessly received data. We
+                            record the current, average, min, and max values for the two vitals measurements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div id="architecture" class="architecture-section">
+                <h2>System Architecture</h2>
+                <p>The following block diagram illustrates the high-level system architecture of the NIMBL device,
+                    showcasing the interaction between our hardware modules, microcontroller, and the base station.</p>
+                <div class="design-item">
+                    <img src="img/block-diagram.webp" alt="System Architecture Block Diagram mapping components"
+                        class="max-w-800" loading="lazy" width="800" height="500">
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div id="technologies" class="technologies-section">
+                <h2>Technologies & Software</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <img src="img/cpp.webp" alt="C/C++ Logo" loading="lazy" width="50" height="50">
+                        <span>C/C++</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/py.webp" alt="Python Logo" loading="lazy" width="50" height="50">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/ti-ccs.webp" alt="TI Code Composer Studio Logo" loading="lazy" width="50"
+                            height="50">
+                        <span>TI CCS</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/ti.webp" alt="SmartRF Logo" loading="lazy" width="50" height="50">
+                        <span>SmartRF</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/f360.webp" alt="Fusion360 Logo" loading="lazy" width="50" height="50">
+                        <span>Fusion360</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/html.webp" alt="HTML Logo" loading="lazy" width="50" height="50">
+                        <span>HTML</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/css.webp" alt="CSS Logo" loading="lazy" width="50" height="50">
+                        <span>CSS</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/teraterm.webp" alt="Tera Term Logo" loading="lazy" width="50" height="50">
+                        <span>Tera Term</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/drawio.webp" alt="DrawIO Logo" loading="lazy" width="50" height="50">
+                        <span>DrawIO</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="img/github.webp" alt="GitHub Logo" loading="lazy" width="50" height="50">
+                        <span>GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bom" class="bom-section card">
+            <h2>Bill of Materials (BOM)</h2>
+            <p>A cost-effective design was a major priority for NIMBL. Below is a breakdown of our final project
+                component costs.</p>
+            <img src="img/bom-chart.webp" alt="Pie Chart detailing the Bill of Materials cost breakdown" loading="lazy"
+                width="600" height="400">
+        </section>
+
+        <section id="deliverables" class="deliverables-section">
+            <h2>Project Deliverables</h2>
+
+            <div class="deliverables-nav">
+                <p><strong>Jump to:</strong></p>
+                <div class="deliverables-links">
+                    <a href="#del-divide-conquer">Divide & Conquer</a>
+                    <a href="#del-midterm-report">Midterm Report</a>
+                    <a href="#del-sd1-report">SD1 Final Report</a>
+                    <a href="#del-mini-demo">Mini Demo Video</a>
+                    <a href="#del-conference">Conference Paper</a>
+                    <a href="#del-sd2-report">SD2 Final Report</a>
+                    <a href="#del-cdr-video">CDR Video</a>
+                    <a href="#del-cdr-slides">CDR Slides</a>
+                    <a href="#del-midterm-demo">Midterm Demo</a>
+                    <a href="#del-final-video">Final Video</a>
+                    <a href="#del-final-slides">Final Slides</a>
+                    <a href="#del-final-demo">Final Demo</a>
+                </div>
+            </div>
+
+            <div id="del-divide-conquer" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>Divide and Conquer Document</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <object class="document-embed" data="docs/G30_DivideAndConquer.pdf" type="application/pdf"
+                            title="Divide and Conquer Document PDF">
+                            <p>Your browser does not support PDFs. <a href="docs/G30_DivideAndConquer.pdf"
+                                    target="_blank" rel="noopener noreferrer">Download the PDF</a>.</p>
+                        </object>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-midterm-report" class="media-item card pending">
+                <details open>
+                    <summary>
+                        <h3>Midterm Milestone Report</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <p>Not Implemented Yet</p>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-sd1-report" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>SD1 Final Report</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <object class="document-embed" data="docs/G30_SD1_Final_Report.pdf" type="application/pdf"
+                            title="SD1 Final Report PDF">
+                            <p>Your browser does not support PDFs. <a href="docs/G30_SD1_Final_Report.pdf"
+                                    target="_blank" rel="noopener noreferrer">Download the PDF</a>.</p>
+                        </object>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-mini-demo" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>Mini Demo Video</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <video class="video-embed vertical-video" controls preload="metadata">
+                            <source src="videos/NIMBL_Demo_Video_Final.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-conference" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>8-Page Conference Paper</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <object class="document-embed" data="docs/G30_Conference_Paper.pdf" type="application/pdf"
+                            title="Conference Paper PDF">
+                            <p>Your browser does not support PDFs. <a href="docs/G30_Conference_Paper.pdf"
+                                    target="_blank" rel="noopener noreferrer">Download the PDF</a>.</p>
+                        </object>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-sd2-report" class="media-item card pending">
+                <details open>
+                    <summary>
+                        <h3>SD2 Final Report</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <p>Not Implemented Yet</p>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-cdr-video" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>Critical Design Review Presentation Video</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <video class="video-embed horizontal-video" controls preload="metadata">
+                            <source src="videos/NIMBL_CDR_Video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-cdr-slides" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>Critical Design Review Presentation Slides</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <object class="document-embed slides-embed" data="docs/G30_CDR_Presentation.pdf"
+                            type="application/pdf" title="CDR Slides PDF">
+                            <p>Your browser does not support PDFs. <a href="docs/G30_CDR_Presentation.pdf"
+                                    target="_blank" rel="noopener noreferrer">Download the Slides</a>.</p>
+                        </object>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-midterm-demo" class="media-item card pending">
+                <details open>
+                    <summary>
+                        <h3>Midterm Demonstration Video</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <p>Not Implemented Yet</p>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-final-video" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>Final Presentation Video</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <video class="video-embed horizontal-video" controls preload="metadata">
+                            <source src="videos/G30_NIMBL_Final_Review.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-final-slides" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>Final Presentation Slides</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <object class="document-embed slides-embed" data="docs/G30_Final_Presentation.pdf"
+                            type="application/pdf" title="Final Presentation Slides PDF">
+                            <p>Your browser does not support PDFs. <a href="docs/G30_Final_Presentation.pdf"
+                                    target="_blank" rel="noopener noreferrer">Download the Slides</a>.</p>
+                        </object>
+                    </div>
+                </details>
+            </div>
+
+            <div id="del-final-demo" class="media-item card">
+                <details open>
+                    <summary>
+                        <h3>Final Demonstration Video</h3>
+                    </summary>
+                    <div class="deliverable-content">
+                        <video class="video-embed horizontal-video" controls preload="metadata">
+                            <source src="videos/G30_NIMBL_Final_Demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="card">
+            <div id="datasheets" class="datasheets-section">
+                <h2>Component Datasheets</h2>
+                <p>Below are links to the datasheets of the core components used in the NIMBL project.</p>
+                <div class="datasheet-links">
+                    <a href="https://www.ti.com/lit/ds/symlink/msp430fr2476.pdf?ts=1776912392494&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FMSP430FR2476"
+                        target="_blank" class="datasheet-btn" rel="noopener noreferrer">MSP430FR2476 MCU</a>
+                    <a href="https://cdn.sparkfun.com/assets/2/e/2/1/9/AN6806.pdf" target="_blank" class="datasheet-btn"
+                        rel="noopener noreferrer">MAX32664 Biometric Hub</a>
+                    <a href="https://www.ti.com/lit/ds/symlink/cc1101.pdf" target="_blank" class="datasheet-btn"
+                        rel="noopener noreferrer">CC1101
+                        RF Transceiver</a>
+                    <a href="https://www.holtek.com/webapi/116711/HT1621_21Gv340.pdf" target="_blank"
+                        class="datasheet-btn" rel="noopener noreferrer">HT1621 LCD Controller</a>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div id="repos" class="github-section">
+                <h2>GitHub Repositories</h2>
+                <div class="github-links">
+                    <a href="https://github.com/TakiTyler/NIMBL-SparkFun_MAX32664_Library" target="_blank"
+                        class="github-btn" rel="noopener noreferrer">NIMBL SparkFun MAX32664</a>
+                    <a href="https://github.com/TakiTyler/NIMBL-HT1621_LCD_Library" target="_blank" class="github-btn"
+                        rel="noopener noreferrer">NIMBL HT1621 LCD</a>
+                    <a href="https://github.com/TakiTyler/NIMBL-CC1101_RF_Library" target="_blank" class="github-btn"
+                        rel="noopener noreferrer">NIMBL CC1101</a>
+                    <a href="https://github.com/TakiTyler/NIMBL-Website_and_Python" target="_blank" class="github-btn"
+                        rel="noopener noreferrer">NIMBL Website and Python</a>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div id="acknowledgements" class="acknowledgements-section">
+                <h2>Acknowledgements</h2>
+                <p>We would like to extend our sincere gratitude to our project advisor, as well as our reviewers, for
+                    their invaluable guidance, support, and feedback throughout the development of NIMBL.</p>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2024 NIMBL Project - Group 30. All rights reserved.</p>
+        <p>&copy; 2026 NIMBL Project - Group 30. All rights reserved.</p>
     </footer>
 </body>
 
