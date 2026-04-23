@@ -57,4 +57,4 @@ This repository is part of a larger ecosystem of software and hardware designed 
 *   **Tyler Takimoto** - Computer Engineering
 *   **Benjamin Will** - Electrical Engineering
 
-*&copy; 2024 NIMBL Project - Group 30. All rights reserved.*
+*&copy; 2026 NIMBL Project - Group 30. All rights reserved.*
