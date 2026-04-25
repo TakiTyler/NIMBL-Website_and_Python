@@ -65,7 +65,7 @@ body {
 .site-header {
     background-color: var(--header-bg);
     color: #ffffff;
-    padding: 20px 0;
+    padding: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -73,7 +73,7 @@ body {
 }
 
 .header-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -83,7 +83,7 @@ body {
 }
 
 .logo {
-    width: 75px;
+    width: 50px;
     height: auto;
 }
 
@@ -186,7 +186,7 @@ body {
 /* Group Members Grid Layout */
 .group-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
     margin-top: 10px;
 }
@@ -199,6 +199,13 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     border: 1px solid var(--border-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    @media (max-width: 768px){
+        img{
+            width: 80px;
+            height: 80px;
+        }
+    }
 }
 
 .member-card:hover {
@@ -349,6 +356,101 @@ body {
     border: 1px solid var(--border-color);
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    html {
+        /* Increase padding for anchor links due to stacked sticky header */
+        scroll-padding-top: 260px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .header-container img{
+        display: none;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+    }
+
+    .content {
+        max-width: 450px;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .header-titles h1 {
+        font-size: 1.8rem;
+    }
+
+    .project-info h2,
+    .group-section h2,
+    .deliverables-section h2,
+    .project-details h2,
+    .goals-objectives h2,
+    .project-design h2,
+    .architecture-section h2,
+    .technologies-section h2,
+    .bom-section h2,
+    .datasheets-section h2,
+    .github-section h2,
+    .acknowledgements-section h2 {
+        font-size: 1.5rem;
+    }
+
+    p,
+    li,
+    .main-nav a,
+    .deliverables-links a{
+        font-size: 0.8rem;
+    }
+
+    .deliverables-links {
+        justify-content: center;
+    }
+
+    .document-embed {
+        height: 50vh;
+        min-height: 400px;
+    }
+
+    .media-item summary h3 {
+        font-size: 1.2rem;
+    }
+
+    .tech-item {
+        width: 100px;
+        padding: 10px;
+
+        span{
+            font-size: 0.8rem !important;
+        }
+        img{
+            width: 30px !important;
+            height: 30px !important;
+        }
+    }
+
+    .vertical-video {
+        height: auto;
+        max-height: 400px;
+        width: 100%;
+    }
+
+    .bom-section img{
+        width: 300px !important;
+        height: 200px !important;
+    }
+}
+
 /* Technologies Grid */
 .tech-grid {
     display: flex;
@@ -481,7 +583,7 @@ body {
 }
 
 .design-item img {
-    width: 100%;
+    width: 80%;
     max-width: 450px;
     height: auto;
     border-radius: 8px;
