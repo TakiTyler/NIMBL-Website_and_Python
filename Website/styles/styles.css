@@ -160,6 +160,10 @@ body {
     padding-bottom: 5px;
 }
 
+.acknowledgements-section p{
+    margin-top: 20px;
+}
+
 .bom-section img{
     display: flex;
     align-self: center;
